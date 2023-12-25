@@ -49,7 +49,7 @@ app.secret_key = os.urandom(24)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('.templates/index.html')
 
 @app.route('/add_products',methods=['POST','GET'])
 def products():

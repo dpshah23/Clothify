@@ -44,12 +44,12 @@ Keywordrs_women_track=['tracks for woman','tracks for women','track suit for wom
 
 
 
-app=Flask('__main__',template_folder="./templates")
+app=Flask('__main__',template_folder="templates")
 app.secret_key = os.urandom(24)
 
 @app.route('/')
 def index():
-    return render_template('./templates/index.html')
+    return render_template('index.html')
 
 @app.route('/add_products',methods=['POST','GET'])
 def products():

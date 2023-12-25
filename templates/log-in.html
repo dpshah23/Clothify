@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Log-in Page</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/log-in.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <script src="../static/js/log-in.js"></script> -->
+  </head>
+  <body>
+    <div class="newlogin">
+      <h2><center>Log in</center></h2>
+    </div>
+    <div class="login-container">
+      <!-- <h2><center><u>Log in</u></center></h2> -->
+      <form id="login-form" method="post" action="/successful">
+        <div class="form-element">
+          <label for="email">Email:</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Enter your Email"
+            required
+          />
+        </div>
+        <div class="form-element">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Enter your Password"
+            required
+          />
+        </div>
+        <button type="submit"><b>Log in</b></button>
+        <div class="log-in">
+          <p>Not have Account?</p>
+          <a href="/signup">Sign up</a>
+        </div>
+        <div class="signup-link">
+          <p>
+            <center>
+              By creating an account, you agree to Amazon's
+              <a href="/terms_and_Conditions"><b>Conditions of Use</b></a> and
+              <a href="/license"><b>Privacy Notice</b></a
+              >.
+            </center>
+          </p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

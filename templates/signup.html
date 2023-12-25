@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - Clothify</title>
+    <link rel="stylesheet" href="../static/css/signup.css">
+    <!-- <style>
+      
+    </style> -->
+  </head>
+  <body>
+    <div class="sign-up">
+      <h2 class="signup-title">Sign Up</h2>
+    </div>
+    <form method="post" action='/success'>
+    
+    <div class="signup-container">
+      
+      
+      <input type="text" class="signup-input" placeholder="Name"  name="name"/>
+      <input type="text" class="signup-input" placeholder="Mobile Number" name="phone"/>
+      <input type="text" class="signup-input" placeholder="Date of Birth" name="dob"/>
+      <input type="text" class="signup-input" placeholder="Address" name="address"/>
+      <input type="text" class="signup-input" placeholder="Email" name="email"/>
+      <input type="password" class="signup-input" placeholder="Password" name="password"/>
+      <input
+        type="password"
+        class="signup-input"
+        placeholder="Confirm Password"/>
+
+      <button type="submit" class="signup-button" >
+        Create Your Clothify Account
+      </button>
+
+    </form>
+      <p class="log-in"><u>Already have an Account?</u></p>
+      <a href="/login"><p class="log-in">Log in</p> </a>
+      <div class="signup-link">
+        <p>
+          By creating an account, you agree to Amazon's
+          <a href="/terms_and_Conditions"><b>Conditions of Use</b></a> and <a href="/license"><b>Privacy Notice</b></a>.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

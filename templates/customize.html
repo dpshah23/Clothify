@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customization</title>
+    <style>
+      #canvas {
+        margin-left: 150px;
+        /* box-shadow: 20 20 20px rgba(0, 0, 0, 0); */
+        cursor: crosshair;
+        /* background-color: #222f3d; */
+      }
+      body {
+        color: white;
+        background-clip: text;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        background: linear-gradient(
+          to left,
+          #66d476,
+          #245a54
+        ); /* Replace with your desired background colors */
+        animation: gradientFade 5s infinite alternate;
+      }
+
+      @keyframes gradientFade {
+        0% {
+          background-position: 0%;
+        }
+        100% {
+          background-position: 100%;
+        }
+      }
+
+      .content {
+        text-align: center;
+        color: white;
+        font-size: 24px;
+      }
+      .card {
+        text-align: center;
+        padding: 20px;
+        /* background-color:rgb(143, 227, 214); */
+        border-radius: 8px;
+        /* box-shadow: 0 10 10px rgba(0, 0, 0, 0.1); */
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid">
+      <div class="card">
+        <h1>CUSTOMIZE HERE !!</h1>
+
+        <input type="file" id="backgroundImageInput" accept="image/*" />
+        <input type="file" id="userImageInput" accept="image/*" />
+        <label for="text">Text:</label>
+        <input type="text" id="text" value="" />
+        <canvas id="canvas" width="800" height="600"></canvas>
+
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const canvas = document.getElementById("canvas");
+            const ctx = canvas.getContext("2d");
+            let backgroundImage;
+            let userImage;
+            let isTextHovered = false;
+            let isDragging = false;
+            let offsetX, offsetY;
+            let textX = 50; // Initial X coordinate
+            let textY = 50; // Initial Y coordinate
+
+            document
+              .getElementById("backgroundImageInput")
+              .addEventListener("change", handleBackgroundImage);
+            document
+              .getElementById("userImageInput")
+              .addEventListener("change", handleUserImage);
+            document
+              .getElementById("text")
+              .addEventListener("input", drawImages);
+
+            canvas.addEventListener("mousemove", handleMouseMove);
+            canvas.addEventListener("mouseout", handleMouseOut);
+            canvas.addEventListener("mousedown", handleMouseDown);
+            canvas.addEventListener("mouseup", handleMouseUp);
+
+            function handleBackgroundImage(e) {
+              const reader = new FileReader();
+
+              reader.onload = function (event) {
+                backgroundImage = new Image();
+                backgroundImage.onload = function () {
+                  drawImages();
+                };
+                backgroundImage.src = event.target.result;
+              };
+
+              reader.readAsDataURL(e.target.files[0]);
+            }
+
+            function handleUserImage(e) {
+              const reader = new FileReader();
+
+              reader.onload = function (event) {
+                userImage = new Image();
+                userImage.onload = function () {
+                  drawImages();
+                };
+                userImage.src = event.target.result;
+              };
+
+              reader.readAsDataURL(e.target.files[0]);
+            }
+
+            function drawImages() {
+              const text = document.getElementById("text").value;
+
+              ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+              // Draw background image
+              if (backgroundImage) {
+                ctx.drawImage(
+                  backgroundImage,
+                  0,
+                  0,
+                  canvas.width,
+                  canvas.height
+                );
+              }
+
+              // Draw user image
+              if (userImage) {
+                ctx.drawImage(userImage, 150, 150, 100, 100); // You can adjust the size and position as needed
+              }
+
+              // Draw text
+              ctx.font = "30px Arial";
+              ctx.fillStyle = isTextHovered ? "white" : "black"; // Change text color on hover
+              ctx.fillText(text, textX, textY);
+            }
+
+            function handleMouseMove(e) {
+              if (isDragging) {
+                const newX = e.clientX - offsetX;
+                const newY = e.clientY - offsetY;
+
+                textX = newX;
+                textY = newY;
+
+                drawImages();
+              } else {
+                const mouseX = e.offsetX;
+                const mouseY = e.offsetY;
+
+                // Check if the mouse is over the text
+                isTextHovered =
+                  mouseX >= textX &&
+                  mouseX <=
+                    textX +
+                      ctx.measureText(document.getElementById("text").value)
+                        .width &&
+                  mouseY >= textY - 30 &&
+                  mouseY <= textY; // Assuming font size is 30px
+
+                drawImages();
+              }
+            }
+
+            function handleMouseOut() {
+              isTextHovered = false;
+              drawImages();
+            }
+
+            function handleMouseDown(e) {
+              const mouseX = e.clientX;
+              const mouseY = e.clientY;
+
+              if (isTextHovered) {
+                isDragging = true;
+                offsetX = mouseX - textX;
+                offsetY = mouseY - textY;
+              }
+            }
+
+            function handleMouseUp() {
+              isDragging = false;
+            }
+          });
+        </script>
+      </div>
+    </div>
+  </body>
+</html>

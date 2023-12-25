@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta hhtp-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Clothify</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="css.css">
+    <!-- <link href=”https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css” rel=”stylesheet” 
+    integrity=”sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU” crossorigin=”anonymous”> -->
+    
+</head>
+<body>
+    
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border">
+                <div class="logo">
+        
+                    
+                </div>
+            </div>
+
+            <div class="nav-address border  ">
+                <p class="add-first">Deliver to</p>
+                <div class="add-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <p class="add-second">India</p>
+                </div>
+            </div>
+            <form id="search" action='/search' method='POST' class="search-form">
+            <div class="nav-search">
+                
+          
+                    <select class="search-select">
+                        <option>All</option>
+                    </select>
+                    <input name="query" placeholder="Search Clothify" class="search-input">
+                    <div class="search-icon">
+                        <!-- <button type="submit"> -->
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        <!-- </button> -->
+                    </div>
+
+            
+                
+            </div>
+        </form>
+            
+        
+            <div class="nav-signin border">
+                {% if session['user_id'] %}
+                    <p><span>Hello, {{ session['username'] }}</span></p>
+                    <a href="/logout">Logout</a>
+                {% else %}
+                    <p><span>Hello, </span></p>
+                    <a href="/login" target="_blank">Login here</a>
+                {% endif %}
+            </div>
+            <div class="nav-return border">
+                <p><span>Return</span></p>
+                <p class="nav-second">& Orders</p>
+            </div>
+
+            <div class="nav-cart border">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Cart
+                
+            </div>
+            </div>
+            <div class="panel">
+                <div class="panel-all">
+                    <i class="fa-solid fa-bars"></i>
+                    All
+                </div>
+                <div class="panel-ops">
+                    <p>Today's Deals</p>
+                    <p>Customer Service</p>
+                    <p>Registry</p>
+                    <p>Gift Cards</p>
+                    <p>Sell </p>
+                </div>
+                
+            </div>
+        </header>
+        <div id="banner-container" onclick="showPopup()">
+            <img src="https://firebasestorage.googleapis.com/v0/b/rwpd-micro-project.appspot.com/o/image.jpg?alt=media&token=12475c17-1e4d-42e3-8c8e-c2f065f536a7" alt="Banner Image">
+            <img src="https://firebasestorage.googleapis.com/v0/b/rwpd-micro-project.appspot.com/o/clo.jpg?alt=media&token=7ba81619-034d-434d-b300-7c5ac6c4775f" alt="Banner Image">
+            <!-- <img src="image.jpg" alt="Banner Image"> -->
+            <p><strong>You can now CUSTOMIZE your T-shirt under just @499</strong></p>
+            <a href="/customize" style="color:rgb(70, 137, 127);" target="_blank">CUSTOMIZE NOW</a>
+        </div>
+        
+        <div id="popup">
+            <div id="close-btn" onclick="hidePopup()">X</div>
+            
+        </div>
+        
+        <script>
+            function showPopup() {
+                document.getElementById('popup').style.display='unblock';
+            }
+        
+            function hidePopup() {
+                document.getElementById('popup').style.display = 'none';
+            }
+        </script>
+     
+        <div class="container">
+            <h2 class="text-center mb-4">Featured Products</h2>
+        </div>
+        <div class="shop-section">
+            <div class="box1 box">
+                <div class="box-content">
+                    <h2>Men's Shirts</h2>
+                    <div class="box-image" style="background-image: url('../static/image/shirt_9.jpg');"></div>
+                    <p>AVAILABLE</p>
+                </div>
+            </div>
+            <div class="box2 box">
+                <div class="box-content">
+                    <h2>Men's Jeans</h2>
+                    <div class="box-image" style="background-image: url('../static/image/pant_1.jpg');"></div>
+                    <p>AVAILABLE</p>
+                </div>
+            </div>
+            <div class="box3 box">
+                <div class="box-content">
+                    <h2>Men's Shorts</h2>
+                    <div class="box-image" style="background-image: url('../static/image/short_15.jpg');"></div>
+                    <p>AVAILABLE</p>
+                </div>
+            </div>
+            <div class="box4 box">
+                <div class="box-content">
+                    <h2>Men's T-Shirts</h2>
+                    <div class="box-image" style="background-image: url('../static/image/t-shirt_2.webp');"></div>
+                    <p>AVAILABLE</p>
+                </div>
+            </div>
+            <div class="box5 box">
+                <div class="box-content">
+                    <h2>Women's Kurtis</h2>
+                    <div class="box-image" style="background-image: url('../static/image/kurti_11.jpeg');"></div>
+                    <p>AVAILABLE</p>
+                </div>
+            </div>
+            <div class="box6 box">
+                <div class="box-content">
+                    <h2>Women's Tops</h2>
+                    <div class="box-image" style="background-image: url('../static/image/top_15.jpeg');"></div>
+                    <p>AVAILABLE</p>
+                </div>
+            </div>
+            <div class="box7 box">
+                <div class="box-content">
+                    <h2>Women's T-Shirts</h2>
+                    <div class="box-image" style="background-image: url('../static/image/women_t-shirt_17.jpeg');"></div>
+                    <p>AVAILABLE</p>
+                </div>
+            </div>
+            <div class="box8 box">
+                <div class="box-content">
+                    <h2>Fashion Trends</h2>
+                    <div class="box-image" style="background-image: url('../static/image/box8_image.jpg');"></div>
+                    <p>AVAILABLE</p>
+                </div>
+            </div>
+            
+        </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <footer>
+            <div class="foot-panel1">
+                <a href="#">Back to TOP</a>
+            </div>
+            <div class="foot-panel4">
+                <div class="pages">
+                    <a href="/terms_and_Conditions" target="_blank">Condition of Use</a><br>
+                    <a href="/license" target="_blank">Privacy Notice</a><br>
+                    <a href="/contact_us" target="_blank">Contact Us</a>
+                    <div class="copyright">© 2023, Clothify.com, Inc. or its affiliates</div>
+                </div>
+            </div>
+            
+        </footer>
+</body>
+</html>

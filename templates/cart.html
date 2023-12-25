@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link rel="stylesheet" href="../static/css/cart.css">
+    <script src="../static/js/app.js"></script>
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-logo border">
+            <div class="logo">
+                
+            </div>
+        </div>
+
+        <div class="nav-address border  ">
+            <p class="add-first">Deliver to</p>
+            <div class="add-icon">
+                <i class="fa-solid fa-location-dot"></i>
+                <p class="add-second">India</p>
+            </div>
+        </div>
+
+        <div class="nav-search">
+            <select class="search-select">
+                <option>All</option>
+            </select>
+            <input placeholder="Search Clothify" class="search-input">
+            <div class="search-icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+        </div>
+    
+        <div class="nav-signin border">
+            <p><span>Hello, sign in</span></p>
+            <p class="nav-second">Account & Lists</p>
+        </div>
+
+        <div class="nav-return border">
+            <p><span>Return</span></p>
+            <p class="nav-second">& Orders</p>
+        </div>
+
+        <!-- <div class="nav-cart border">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Cart
+            
+        </div> -->
+        </div>
+    
+    <div class="container">
+        <header>
+            <!-- <div class="title">PRODUCT LIST</div> -->
+            <div class="icon-cart">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+                </svg>
+                <span>0</span>
+            </div>
+        </header>
+        <div class="listProduct">
+
+        </div>
+    </div>
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="product-details-popup" id="productDetailsPopup">
+                <!-- Product details content will be displayed here -->
+            </div>
+        </div>
+    </div>
+    
+    <div class="product-details"></div>
+    <div class="cartTab">
+        <h1>Shopping Cart</h1>
+        <div class="listCart">
+            
+        </div>
+        
+<div>Total Price: <span id="cartTotalPrice">0.00</span></div>
+
+
+ <button class="calculateTotal">Calculate Total</button> 
+        <div class="btn">
+            <button class="close">CLOSE</button>
+            <button class="paybtn">Check Out</button>
+        </div>
+    </div>
+
+</body>
+</html>

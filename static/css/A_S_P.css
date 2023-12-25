@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+  background-color: white;
+}
+
+.video-container {
+  position: relative;
+  width: 100%;
+  max-width: 550px;
+}
+
+.video {
+  width: 100%;
+  border: 0px solid #ccc;
+  border-radius: 0px;
+  box-shadow: 0 0 10px white;
+}
+
+.textcong {
+  font-size: 24px;
+  text-align: center;
+  text-shadow: 2px;
+}
+
+.op {
+ 
+    margin-left: 200px;
+    border-radius: 20px;
+    background-color: #FFBB33;
+    height: 50px;
+    width: 150px;
+    font-size: medium;
+}
+
+.op:hover  {
+    cursor: pointer;
+    background-color: aliceblue;
+}

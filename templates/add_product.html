@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Add Page</title>
+    <link rel="stylesheet" href="../static/css/product_add.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Add a New Product</h1>
+        <form action="/added" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Price:</label>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+            <div class="form-group">
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Category:</label>
+                <select id="category" name="category" required>
+                    Product Category
+                <option value"men's t-shirt">men's t-shirt</option>
+                <option value"men's shirt">men's shirt</option>
+                <option value"men's short">men's short</option>
+                <option value"men's pants">men's pants</option>
+                <option value"men's track">men's track</option>
+                <option value"women t-shirt">women t-shirt</option>
+                <option value"women shirt">women shirt</option>
+                <option value"women kurti">women kurti</option>
+                <option value"women top">women top</option>
+                <option value"women pants">women pants</option>
+                <option value"women track">women track</option>
+                    
+                </select>
+            </div>
+           
+           
+            <div class="form-group">
+                <label for="image">Choose an image:</label>
+                <input type="file" id="image" name="image" accept="image/*" required>
+            </div>
+            <button type="submit">Add Product</button>
+        </form>
+    </div>
+</body>
+
+</html>
+
+</html>
+
+</html>

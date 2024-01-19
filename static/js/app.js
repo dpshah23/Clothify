@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         });
     
-        // Display the total price in the cart tab with the Rupees symbol (₹)
+        
         document.getElementById('cartTotalPrice').innerText = `₹${totalPrice.toFixed(2)}`;
     
         // Check if the checkout button exists before adding the event listener
@@ -99,10 +99,10 @@ const closeModal = () => {
     modal.style.display = 'none';
 };
 
-// Attach event listener to the close button
+
 document.querySelector('.close').addEventListener('click', closeModal);
 
-// Attach event listener to close the modal when clicking outside of it
+
 window.addEventListener('click', (event) => {
     const modal = document.getElementById('productModal');
     if (event.target === modal) {

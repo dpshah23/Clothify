@@ -47,7 +47,7 @@ Keywordrs_women_track=['tracks for woman','tracks for women','track suit for wom
 app=Flask('__main__',template_folder="templates")
 app.secret_key = os.urandom(24)
 
-@app.route('/',methods=['POST','GET'])
+@app.route('/')
 def index():
     return render_template('home.html')
 

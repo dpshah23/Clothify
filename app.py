@@ -8,8 +8,6 @@ import uuid
 cred=credentials.Certificate('credentials.json')
 firebase_admin.initialize_app(cred,{'databaseURL':'https://rwpd-micro-project-default-rtdb.asia-southeast1.firebasedatabase.app/','storageBucket': 'gs://rwpd-micro-project.appspot.com'})
 
-print("Current working directory:", os.getcwd())
-print("Templates folder exists:", os.path.exists("./templates"))
 
 user_id=random.randint(0000000,9999999)
 p_id=random.randint(1000,9999)
@@ -44,7 +42,7 @@ Keywordrs_women_track=['tracks for woman','tracks for women','track suit for wom
 
 
 
-app=Flask('__main__',template_folder="templates")
+app=Flask('__main__')
 app.secret_key = os.urandom(24)
 
 @app.route('/',methods=["GET","POST"])

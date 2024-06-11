@@ -5,6 +5,7 @@ Welcome to Clothify, the pioneering e-commerce platform that revolutionizes your
 ## Key Features
 
 ### 1. **Customization at Your Fingertips**
+
    Tailor your clothing to perfection by choosing colors, styles, and adding personalized designs. Clothify ensures that each garment is a one-of-a-kind expression of your personal style.
 
 ### 2. **Intuitive User Interface**

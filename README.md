@@ -25,6 +25,6 @@ Welcome to Clothify, the pioneering e-commerce platform that revolutionizes your
 
 ## Mission Statement
 
-Clothify stands out as an innovative e-commerce platform, seamlessly blending customization and convenience. Our user-friendly interface, coupled with secure account management and a powerful search feature, aims to redefine how users interact with and personalize their online shopping experience. Clothify isn't just about stylish and unique clothing; it's about prioritizing a user-centric approach to make your shopping experience not only enjoyable but tailored to your individual tastes.
+Clothify stands out as an innovative E-commerce platform, seamlessly blending customization and convenience. Our user-friendly interface, coupled with secure account management and a powerful search feature, aims to redefine how users interact with and personalize their online shopping experience. Clothify isn't just about stylish and unique clothing; it's about prioritizing a user-centric approach to make your shopping experience not only enjoyable but tailored to your individual tastes and convenience.
 
 Discover the future of personalized fashion at [Clothify](https://github.com/dpshah23/Clothify).

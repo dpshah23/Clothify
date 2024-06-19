@@ -476,3 +476,6 @@ def returnjson():
         data = json.load(file) 
     return jsonify(data)
 
+
+if __name__=="__main__":
+    app.run()

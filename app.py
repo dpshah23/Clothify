@@ -149,7 +149,7 @@ def check_is_login():
                 stored_password_hash = list(user_data.values())[0].get('password')
                 if password==stored_password_hash:
                     session['user_id']=user_id
-                    print("session created")
+                    # print("session created")
                     return redirect('/')
                 else:
                     return render_template('log-in.html',msg="User Not Found")
@@ -400,7 +400,7 @@ def search():
             
             with open('searched_products.json','w') as path_file:
                 json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
+                
         
             return render_template('cart.html')
         
@@ -477,5 +477,3 @@ def returnjson():
     return jsonify(data)
 
 
-if __name__=="__main__":
-    app.run()

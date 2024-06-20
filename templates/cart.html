@@ -1,3 +1,7 @@
+{% if 'email' not in request.session %}
+
+{% endif %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -92,6 +96,8 @@
  <button class="calculateTotal">Calculate Total</button> 
         <div class="btn">
             <button class="close">CLOSE</button>
+
+            {% if  %}{% else %}{% endif %}
             <button class="paybtn">Check Out</button>
         </div>
     </div>

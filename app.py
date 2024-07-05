@@ -165,253 +165,47 @@ def login():
     
 
     return render_template('log-in.html')
-@app.route(f'/search',methods=['GET','POST'])
+
+
+@app.route('/search', methods=['GET', 'POST'])
 def search():
- 
     try:
         query = request.form['query']
         print("Received search query:", query)
-        print(query)
-        matched_products_dict={}
-        matched_products={}
-        if query in Keywordrs_mens_t_shirt:
-            category='men\'s t-shirt'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-            
-
-            
-            return render_template('cart.html')
-
-        elif query in Keywordrs_mens_shirt:
-            category='men\'s shirt'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-
-
+        matched_products = {}
         
+        def search_category(category, query_keywords):
+            if query in query_keywords:
+                print(category)
+                data = products_ref.get()
+                print(data)
+                for product_id, product_info in data['products'].items():
+                    if category == product_info['cat']:
+                        matched_products[product_id] = product_info
+                print(matched_products)
+                with open('searched_products.json', 'w') as path_file:
+                    json.dump(matched_products, path_file, indent=4)
+                    print("data added to json file")
+                return True
+            return False
+
+        if search_category("men's t-shirt", Keywordrs_mens_t_shirt) or \
+           search_category("men's shirt", Keywordrs_mens_shirt) or \
+           search_category("men's short", Keywordrs_mens_short) or \
+           search_category("men's pants", Keywordrs_mens_pants) or \
+           search_category("men's track", Keywordrs_men_track) or \
+           search_category("women t-shirt", Keywordrs_women_t_shirt) or \
+           search_category("women shirt", Keywordrs_women_shirt) or \
+           search_category("women kurti", Keywordrs_women_kurti) or \
+           search_category("women top", Keywordrs_women_top) or \
+           search_category("women pants", Keywordrs_women_pants) or \
+           search_category("women track", Keywordrs_women_track):
             return render_template('cart.html')
-
-        elif query in Keywordrs_mens_short:
-            category='men\'s short'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-
-        
-            return render_template('cart.html')
-
-        elif query in Keywordrs_mens_pants:
-            category='men\'s pants'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-
-        
-            return render_template('cart.html')
-
-        elif query in Keywordrs_men_track:
-            category='men\'s track'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-
-            return render_template('cart.html')
-
-        elif query in Keywordrs_women_t_shirt:
-            category='women t-shirt'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-
-        
-            return render_template('cart.html')
-
-        elif query in Keywordrs_women_shirt:
-            category='women shirt'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-
-        
-            return render_template('cart.html')
-
-        elif query in Keywordrs_women_kurti:
-            category='women kurti'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-
-        
-            return render_template('cart.html')
-
-        elif query in Keywordrs_women_top:
-            category='women top'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-        
-            return render_template('cart.html')
-
-        elif query in Keywordrs_women_pants:
-            category='women pants'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                print("data added to json file")
-
-        
-            return render_template('cart.html')
-
-        elif query in Keywordrs_women_track:
-            category='women track'
-            print(category)
-            
-            data=products_ref.get()
-            
-            print(data)
-            for product_id, product_info in data['products'].items():
-                cat = product_info['cat']
-                if category==cat:
-                    matched_products[product_id] = product_info
-            
-            print(matched_products)
-            
-            with open('searched_products.json','w') as path_file:
-                json.dump(matched_products,path_file,indent=4)
-                
-        
-            return render_template('cart.html')
-        
-
         else:
             return render_template('index.html')
-            
-        
-            
+
     except Exception as e:
-        print(f"Error Occured {e}")
+        print(f"Error Occured: {e}")
         return redirect(url_for('index'))
 
 
